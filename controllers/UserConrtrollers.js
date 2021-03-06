@@ -11,10 +11,15 @@ const userSignup = async (body) => {
 };
 
 const userLogin = async (body) => {
-  const user = await User.findOne({ where: { email: body.email } });
-  const validPassword = await bcrypt.compare(body.password, user.password);
-  if (!validPassword) return { message: 'Invalid Email or Password', success: false };
-  return { token: user.generateAuthToken(), success: true };
+  try {
+    const user = await User.findOne({ where: { email: body.email } });
+    if(!user)  return { message: 'Invalid Email or Password', success: false };
+    const validPassword = await bcrypt.compare(body.password, user.password);
+    if (!validPassword) return { message: 'Invalid Email or Password', success: false };
+    return { token: user.generateAuthToken(), success: true };
+  } catch (err) {
+    console.log('Error', err);
+  }
 };
 
 module.exports = { userSignup, userLogin };

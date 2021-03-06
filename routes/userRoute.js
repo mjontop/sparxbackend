@@ -7,14 +7,13 @@ router.get('/', async (req, res) => {
   res.send(users);
 });
 
-router.post('/signuppvt', async (req, res) => {
-  const user = await userSignup(req.body);
-  return res.send(user);
-});
-
 router.post('/login', async (req, res) => {
-  const user = await userLogin(req.body);
-  return res.send(user);
+  try {
+    const user = await userLogin(req.body);
+    return res.send(user);
+  } catch (err) {
+    console.log('Error ', err);
+  }
 });
 
 module.exports = router;
