@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use('/api/user', userRoute);
 
-app.listen(1337, () => console.log('server started at', PORT));
+app.listen(PORT, () => console.log('server started at', PORT));
 
 db.sync()
 
