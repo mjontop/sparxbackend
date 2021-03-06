@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
+const jwt = require('jsonwebtoken')
 const db = require('../config/db');
-const jwtPrivateKey = require('../config/env')
+const {jwtPrivateKey} = require('../config/env')
 
 const User = db.define('user', {
   id: {
@@ -13,6 +14,7 @@ const User = db.define('user', {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true
   },
   password: {
     type: DataTypes.STRING,
