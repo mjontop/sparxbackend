@@ -10,17 +10,13 @@ const Zipcode = db.define(
       allowNull: false,
     },
 
-    country: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     approximate_latitude: {
       type: DataTypes.NUMBER,
-      allowNull: false,
+      allowNull: true,
     },
     approximate_longitude: {
       type: DataTypes.NUMBER,
-      allowNull: false,
+      allowNull: true,
     },
     population_count: {
       type: DataTypes.INTEGER,
@@ -34,42 +30,8 @@ const Zipcode = db.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    pop_under_10: {
+    median_household_income: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    pop_20_to_29: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    pop_30_to_39: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    pop_40_to_49: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    pop_50_to_59: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-
-    pop_60_to_69: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    pop_70_to_79: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    pop_80_plus: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    pop_70_to_79: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
     },
   },
   {
